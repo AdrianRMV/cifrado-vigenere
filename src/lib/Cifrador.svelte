@@ -1,53 +1,47 @@
 <script>
-    const charConverter = {
-        A: 0,
-        B: 1,
-        C: 2,
-        D: 3,
-        E: 4,
-        F: 5,
-        G: 6,
-        H: 7,
-        I: 8,
-        J: 9,
-        K: 10,
-        L: 11,
-        M: 12,
-        N: 13,
-        O: 14,
-        P: 15,
-        Q: 16,
-        R: 17,
-        S: 18,
-        T: 19,
-        U: 20,
-        V: 21,
-        W: 22,
-        X: 23,
-        Y: 24,
-        Z: 25,
-    };
+    const alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 
-    const CLAVE = 'LOREM';
-    const CLAVE_CHAR = [...CLAVE];
+    const message = "HELLO"; 
+    const key = "LOLLA";
 
-    let CLAVE_NUMBERS = [];
 
-    for (const prop in charConverter) {
-        // console.log(`charConverter.${prop} = ${charConverter[prop]}`);
-        // console.log(charConverter[charConverter[prop]])
+    const key_array = [...key]; // ['L', 'O', 'L', 'L', 'A']
+    const message_array = [...message]; // ['H', 'E', 'L', 'L', 'O']
 
-        console.log(charConverter[prop]);
-        console.log(CLAVE_CHAR[charConverter[prop]]);
+    const message_number = []; // Arreglo donde iran los numeros de las posiciones de la letra en el alfabeto
+    const key_number = []; // Arreglo donde iran los numeros de las posiciones de la letra en el alfabeto | Ejemplo: (7, 11, 12, 20) |
+    const suma_mensaje_clases = [];
 
-        if (CLAVE_CHAR[charConverter[prop]] == charConverter[prop]){
-            CLAVE_NUMBERS.push(charConverter[prop]);
-            console.log(CLAVE_NUMBERS);
-        }
+    message_array.forEach((elemento)=>{
+        message_number.push(alphabet.indexOf(elemento))
+    });
+
+    key_array.forEach((elemento)=>{
+        key_number.push(alphabet.indexOf(elemento))
+    });
+
+    console.log(message_number);
+    console.log(key_number);
+
+    // Ciclo que recorrera el largo del arreglo de la llave, 
+    // para asi saber exactamente el numero de caracteres que tiene, tanto nuestro mensaje como nuestra llave
+    for (let index = 0; index < key_number.length; index++) {
+        // Variable que alamacena el valor que tenga el arreglo de llave en la posicion actual del ciclo
+        const element = key_number[index];
+
+        // Variable que alamacena el valor que tenga el arreglo de mensaje en la posicion actual del ciclo
+        const element2 = message_number[index];
+
+        // Variable que suma los dos elementos y los empuja a un arreglo nuevo
+        const sum = element + element2;
+
+        suma_mensaje_clases.push(sum)
     }
+
+    
 
 </script>
 
 <main>
-    {CLAVE_CHAR}
+
 </main>
